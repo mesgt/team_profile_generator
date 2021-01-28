@@ -1,21 +1,30 @@
-function Employee(manager, employeeID, email, officeNumber) {
-    if (typeof manager !== "string" || !manager.trim().length) {
-        throw new Error("Expected parameter 'manager' to be a non-empty string");
-    };
-    if (typeof employeeID.length !=5) {
-        throw new Error("Employee ID must be 5 characters long");
-    };
-    if (typeof email //does not contain '@', it is not valid.\\ 
-    ) { throw new Error("Please type in a valid email address");
-    };
-    if (typeof officeNumber.length !=10) {
-        throw new Error("Please type in a valid office phone number");
-    };
-    
-    this.manager = manager;
-    this.employeeID = employeeID;
-    this.email = email;
-    this.officeNumber = officeNumber;
+const Manager = require("./Manager");
+const Engineer = require("./Engineer");
+const Intern = require("./Intern");
+
+function Employee() {
+    this.team = [];
+}
+
+Employee.prototype.addManager = function(manager) {
+    if (manager instanceof Manager === false) {
+        throw new Error("Expected parameter 'manager' to be an instance of Manager");
+    }
+    this.manager.push(team);
+}
+
+Employee.prototype.addEngineer = function(engineer) {
+    if (engineer instanceof Engineer === false) {
+        throw new Error("Expected parameter 'engineer' to be an instance of Engineer");
+    }
+    this.engineer.push(team);
+}
+
+Employee.prototype.addIntern = function(intern) {
+    if (intern instanceof Intern === false) {
+        throw new Error("Expected parameter 'intern' to be an instance of Intern");
+    }
+    this.intern.push(team);
 }
 
 module.export = Employee;
