@@ -5,6 +5,7 @@ const Manager = require("./src/Manager");
 const Engineer = require("./src/Engineer");
 const Intern = require("./src/Intern");
 const pageTemplate = require("./src/page-template");
+const { mainModule } = require("process");
 
 
 
@@ -56,7 +57,10 @@ function manager() {
             message: "What is your office number?",
             name: "officeNumber",
         },
-    ])
+    ]).then(answers => {
+        console.log(answers); //object containing answers.
+        menu();
+    })
 };
 
 function engineer() {
@@ -81,7 +85,10 @@ function engineer() {
             message: "What is your gitHub username?",
             name: "gitHub",
         },
-    ])
+    ]).then(answers => {
+        console.log(answers); //object containing answers.
+        menu();
+    })
 };
 
 function intern() {
@@ -106,7 +113,10 @@ function intern() {
             message: "What is the name of your school?",
             name: "school",
         },
-    ])
+    ]).then(answers => {
+        console.log(answers); //object containing answers.
+        menu();
+    })
 };
 
 
