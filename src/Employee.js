@@ -4,11 +4,27 @@ class Employee {
         this.id = id;
         this.email = email;
     }
-} 
-    const employee = [
-        new Employee("Sam", 2, "test@test.com")];
 
-console.log(employee)
+    printInfo() {
+        console.log(`${this.name}'s employee ID is ${this.id} and his/her email is ${this.email}`);
+    }
+
+    getName() {
+        return this.name;
+    }
+
+    getId() {
+        return this.id;
+    }
+
+    getEmail() {
+        return this.email;
+    }
+
+    getRole() {
+        return "Employee";
+    }
+} 
 
 module.exports = Employee;
 
