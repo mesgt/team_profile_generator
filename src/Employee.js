@@ -27,4 +27,4 @@ Employee.prototype.addIntern = function(intern) {
     this.intern.push(team);
 }
 
-module.export = Employee;
+module.exports = Employee;

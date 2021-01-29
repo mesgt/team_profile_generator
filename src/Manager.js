@@ -1,4 +1,5 @@
 function Manager(name, employeeID, email, officeNumber) {
+    
     if (typeof name !== "string" || !name.trim().length) {
         throw new Error("Expected parameter 'name' to be a non-empty string");
     };
@@ -8,7 +9,7 @@ function Manager(name, employeeID, email, officeNumber) {
     if (typeof email //does not contain '@', it is not valid.\\ 
     ) { throw new Error("Please type in a valid email address");
     };
-    if (typeof officeNumber.length !=10) {
+    if (typeof officeNumber.length !=3) {
         throw new Error("Please type in a valid office phone number");
     };
     
@@ -16,6 +17,7 @@ function Manager(name, employeeID, email, officeNumber) {
     this.employeeID = employeeID;
     this.email = email;
     this.officeNumber = officeNumber;
-}
 
-module.export = Manager;
+};
+
+module.exports = Manager;

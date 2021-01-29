@@ -18,19 +18,96 @@ function menu() {
     },
 ]).then(answers => {
     if(answers.role === "manager") {
-        console.log("manager")
-        // manager = new Manager //initiate function for manager Q
+        console.log(answers.role)
+        manager(); //initiate function for manager Q
     }
     else if(answers.role === "engineer") {
-        console.log("engineer")//initiate function for engineer Q
+        console.log(answers.role);
+        engineer(); //initiate function for engineer Q
     }
     else if(answers.role === "intern") {
-        console.log("intern") //initiate function for intern Q
+        console.log(answers.role);
+        intern();  //initiate function for intern Q
     }
     else //stop the function
         return
 })
 }; 
+
+function manager() {
+    inquirer.prompt ([
+        {
+            type: "input",
+            message: "What is your full name?",
+            name: "name",
+        },
+        {
+            type: "input",
+            message: "What is your employee ID?",
+            name: "employeeID",
+        },
+        {
+            type: "input",
+            message: "What is your email?",
+            name: "email",
+        },
+        {
+            type: "input",
+            message: "What is your office number?",
+            name: "officeNumber",
+        },
+    ])
+};
+
+function engineer() {
+    inquirer.prompt ([
+        {
+            type: "input",
+            message: "What is your full name?",
+            name: "name",
+        },
+        {
+            type: "input",
+            message: "What is your employee ID?",
+            name: "employeeID",
+        },
+        {
+            type: "input",
+            message: "What is your email?",
+            name: "email",
+        },
+        {
+            type: "input",
+            message: "What is your gitHub username?",
+            name: "gitHub",
+        },
+    ])
+};
+
+function intern() {
+    inquirer.prompt ([
+        {
+            type: "input",
+            message: "What is your full name?",
+            name: "name",
+        },
+        {
+            type: "input",
+            message: "What is your employee ID?",
+            name: "employeeID",
+        },
+        {
+            type: "input",
+            message: "What is your email?",
+            name: "email",
+        },
+        {
+            type: "input",
+            message: "What is the name of your school?",
+            name: "school",
+        },
+    ])
+};
 
 
 menu();

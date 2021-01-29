@@ -18,4 +18,4 @@ function Engineer(name, employeeID, email, gitHubName) {
     this.gitHubName = gitHubName;
 }
 
-module.export = Engineer;
+module.exports = Engineer;

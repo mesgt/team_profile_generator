@@ -18,4 +18,4 @@ function Intern(name, employeeID, email, school) {
     this.school = school;
 }
 
-module.export = Intern;
+module.exports = Intern;
