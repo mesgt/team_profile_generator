@@ -5,7 +5,6 @@ const Manager = require("./src/Manager");
 const Engineer = require("./src/Engineer");
 const Intern = require("./src/Intern");
 const pageTemplate = require("./src/page-template");
-const { mainModule } = require("process");
 
 
 
