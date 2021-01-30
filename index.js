@@ -1,57 +1,63 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Employee = require("./src/Employee");
-const Manager = require("./src/Manager");
-const Engineer = require("./src/Engineer");
-const Intern = require("./src/Intern");
-const pageTemplate = require("./src/page-template");
+// const employee = require("./src/Employee");
+// const Manager = require("./src/Manager");
+// const Engineer = require("./src/Engineer");
+// const Intern = require("./src/Intern");
+// const pageTemplate = require("./src/page-template");
+const { Employee, employeeQ } = require('./src/Employee');
+
 
 
 
 function menu() {
     console.log("Welcome to Team Profile Generator!")
-    inquirer.prompt([
-    {
-        type: "list",
-        message: "Please select your role or exit the app",
-        choices: ["manager", "engineer", "intern", "exit"], //compound the information or exit with a message "no info gen"
-        name: "role",
-    },
-]).then(answers => {
-    if(answers.role === "manager") {
-        console.log(answers.role)
-        // manager(); //initiate function for manager Q
+    inquirer
+        .prompt( 
+            {
+                type: "list",
+                message: "Please select a role or exit the app",
+                choices: ["manager", "engineer", "intern", "exit"],
+                name: "role",
+            },
+        ).then(role => ("manager" || "engineer" || "intern") 
+        ? allEmployees()//if response is one of employees
+        : console.log("no workie")); //if reponse is exit, also add error log
+    if (role==="manager") {
+        
     }
-    else if(answers.role === "engineer") {
-        console.log(answers.role);
-        // engineer(); //initiate function for engineer Q
-    }
-    else if(answers.role === "intern") {
-        console.log(answers.role);
-        // intern();  //initiate function for intern Q
-    }
-    else //stop the function
-        return
-})
-}; 
+                // inquirer
+                //     .prompt(employeeQ)
+                //     .then(response => console.log(response));
+        
+}
 
+    // }
+//             {
+//     if(response.role === "manager") {
+//         console.log(response.role)
+//         manager(); //initiate function for manager Q
+//     }
+//     else if(response.role === "engineer") {
+//         console.log(response.role);
+//         engineer(); //initiate function for engineer Q
+//     }
+//     else if(response.role === "intern") {
+//         console.log(response.role);
+//         intern();  //initiate function for intern Q
+//     }
+//     else //stop the function
+//         return
+// })
+// }; 
+
+function allEmployees() {
+    inquirer
+    .prompt(employeeQ)
+    .then(response => console.log(response));
+}
 // function manager() {
 //     inquirer.prompt ([
-//         {
-//             type: "input",
-//             message: "What is your full name?",
-//             name: "name",
-//         },
-//         {
-//             type: "input",
-//             message: "What is your employee ID?",
-//             name: "employeeID",
-//         },
-//         {
-//             type: "input",
-//             message: "What is your email?",
-//             name: "email",
-//         },
 //         {
 //             type: "input",
 //             message: "What is your office number?",
@@ -67,21 +73,6 @@ function menu() {
 //     inquirer.prompt ([
 //         {
 //             type: "input",
-//             message: "What is your full name?",
-//             name: "name",
-//         },
-//         {
-//             type: "input",
-//             message: "What is your employee ID?",
-//             name: "employeeID",
-//         },
-//         {
-//             type: "input",
-//             message: "What is your email?",
-//             name: "email",
-//         },
-//         {
-//             type: "input",
 //             message: "What is your gitHub username?",
 //             name: "gitHub",
 //         },
@@ -93,21 +84,6 @@ function menu() {
 
 // function intern() {
 //     inquirer.prompt ([
-//         {
-//             type: "input",
-//             message: "What is your full name?",
-//             name: "name",
-//         },
-//         {
-//             type: "input",
-//             message: "What is your employee ID?",
-//             name: "employeeID",
-//         },
-//         {
-//             type: "input",
-//             message: "What is your email?",
-//             name: "email",
-//         },
 //         {
 //             type: "input",
 //             message: "What is the name of your school?",

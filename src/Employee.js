@@ -1,12 +1,30 @@
+const inquirer = require("inquirer");
+const fs = require("fs");
+
+
+
+const employeeQ = [
+    {
+        type: "input",
+        message: "What is your full name?",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "What is your employee ID?",
+        name: "id",
+    },
+    {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+    }
+]
 class Employee {
     constructor(name, id, email) {
         this.name = name;
         this.id = id;
         this.email = email;
-    }
-
-    printInfo() {
-        console.log(`${this.name}'s employee ID is ${this.id} and his/her email is ${this.email}`);
     }
 
     getName() {
@@ -24,9 +42,14 @@ class Employee {
     getRole() {
         return "Employee";
     }
-} 
+    };
+
 
 module.exports = Employee;
+module.exports = {
+    Employee,
+    employeeQ, 
+};
 
 
 
