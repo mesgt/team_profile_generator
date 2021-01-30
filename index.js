@@ -9,6 +9,7 @@ const pageTemplate = require("./src/page-template");
 
 
 function menu() {
+    console.log("Welcome to Team Profile Generator!")
     inquirer.prompt([
     {
         type: "list",
