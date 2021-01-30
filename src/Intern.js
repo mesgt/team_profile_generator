@@ -2,6 +2,14 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const Employee = require("./Employee");
 
+const internQ = [
+    {
+        type: "input",
+        message: "What is the name of your school?",
+        name: "school",
+    }
+]
+
 class Intern extends Employee {
     constructor(name, id, email, school) {
         super(name, id, email)
@@ -18,7 +26,10 @@ getSchool() {
 }
 
 module.exports = Intern;
-
+module.exports = {
+    Intern,
+    internQ, 
+};
 
 
 

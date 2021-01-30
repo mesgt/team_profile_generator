@@ -6,8 +6,9 @@ const fs = require("fs");
 // const Intern = require("./src/Intern");
 // const pageTemplate = require("./src/page-template");
 const { Employee, employeeQ } = require('./src/Employee');
-
-
+const { Manager, managerQ } = require('./src/Manager');
+// const { Engineer, engineerQ } = require('./src/Engineer');
+// const { Intern, internQ } = require('./src/Intern');
 
 
 function menu() {
@@ -23,76 +24,46 @@ function menu() {
         ).then(role => ("manager" || "engineer" || "intern") 
         ? allEmployees()//if response is one of employees
         : console.log("no workie")); //if reponse is exit, also add error log
-    if (role==="manager") {
-        
+    if (menu.role==="manager") {
+        onlyManagers()
+        console.log("success m");
     }
-                // inquirer
-                //     .prompt(employeeQ)
-                //     .then(response => console.log(response));
-        
+    // if (role==="engineer") {
+    //     onlyEngineers();
+    //     console.log("success e");
+    // }
+    // if (role==="intern") {
+    //     onlyInterns();
+    //     console.log("success i");
+    // }
+    // else
+    //     close()
 }
 
-    // }
-//             {
-//     if(response.role === "manager") {
-//         console.log(response.role)
-//         manager(); //initiate function for manager Q
-//     }
-//     else if(response.role === "engineer") {
-//         console.log(response.role);
-//         engineer(); //initiate function for engineer Q
-//     }
-//     else if(response.role === "intern") {
-//         console.log(response.role);
-//         intern();  //initiate function for intern Q
-//     }
-//     else //stop the function
-//         return
-// })
-// }; 
+
 
 function allEmployees() {
     inquirer
     .prompt(employeeQ)
     .then(response => console.log(response));
-}
-// function manager() {
-//     inquirer.prompt ([
-//         {
-//             type: "input",
-//             message: "What is your office number?",
-//             name: "officeNumber",
-//         },
-//     ]).then(answers => {
-//         console.log(answers); //object containing answers.
-//         menu();
-//     })
+};
+
+function onlyManagers() {
+    inquirer
+    .prompt(managerQ)
+    .then(response => console.log(response));
+};
+
+// function onlyEngineers() {
+//     inquirer
+//     .prompt(engineerQ)
+//     .then(response => console.log(response));
 // };
 
-// function engineer() {
-//     inquirer.prompt ([
-//         {
-//             type: "input",
-//             message: "What is your gitHub username?",
-//             name: "gitHub",
-//         },
-//     ]).then(answers => {
-//         console.log(answers); //object containing answers.
-//         menu();
-//     })
-// };
-
-// function intern() {
-//     inquirer.prompt ([
-//         {
-//             type: "input",
-//             message: "What is the name of your school?",
-//             name: "school",
-//         },
-//     ]).then(answers => {
-//         console.log(answers); //object containing answers.
-//         menu();
-//     })
+// function onlyInterns() {
+//     inquirer
+//     .prompt(internQ)
+//     .then(response => console.log(response));
 // };
 
 

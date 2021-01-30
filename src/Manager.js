@@ -3,6 +3,14 @@ const fs = require("fs");
 const Employee = require("./Employee");
 
 
+const managerQ = [
+    {
+        type: "input",
+        message: "What is your office number?",
+        name: "officeNumber",
+    }
+]
+
 class Manager extends Employee {
     constructor(name, id, email, officeNumber){
         super(name, id, email)
@@ -19,7 +27,10 @@ getOfficeNumber() {
 }
 
 module.exports = Manager;
-
+module.exports = {
+    Manager,
+    managerQ, 
+};
 
 // function Manager(name, employeeID, email, officeNumber) {
     

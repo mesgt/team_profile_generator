@@ -2,6 +2,13 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const Employee = require("./Employee");
 
+const engineerQ = [
+    {
+        type: "input",
+        message: "What is your gitHub username?",
+        name: "gitHub",
+    },
+]
 class Engineer extends Employee {
     constructor(name, id, email, github) {
         super(name, id, email)
@@ -18,7 +25,10 @@ getGithub() {
 }
 
 module.exports = Engineer;
-
+module.exports = {
+    Engineer,
+    engineerQ, 
+};
 
 // function Engineer(name, employeeID, email, gitHubName) {
 //     if (typeof name !== "string" || !name.trim().length) {
