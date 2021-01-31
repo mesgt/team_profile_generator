@@ -2,7 +2,8 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const index = require("../index");
 const { Employee, employeeQ, team } = require("./Employee");
-// const team = [];
+
+let teamEngineer = [];
 
 class Engineer extends Employee {
     constructor(name, id, email, github) {
@@ -32,8 +33,8 @@ const engineerQ = () =>
     // console.log("we will win engineers")
     let engineer = new Engineer(response.name, response.id, response.email, response.github)
     // console.log(engineer);
-    team.push(engineer);
-    console.log(team);
+    teamEngineer.push(engineer);
+    console.log(teamEngineer);
     // call the next function
 });
 
@@ -41,7 +42,7 @@ const engineerQ = () =>
 module.exports = {
     Engineer,
     engineerQ,
-    // team
+    teamEngineer
 };
 
 // function Engineer(name, employeeID, email, gitHubName) {

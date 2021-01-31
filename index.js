@@ -5,8 +5,8 @@ const fs = require("fs");
 // const { Employee, employeeQ } = require('./src/Employee');
 const { Manager, managerQ, teamManager } = require('./src/Manager');
 // const { engineerQ } = require("./src/Engineer");
-const { Engineer, engineerQ } = require('./src/Engineer');
-const { Intern, internQ } = require('./src/Intern');
+const { Engineer, engineerQ, teamEngineer } = require('./src/Engineer');
+const { Intern, internQ, teamIntern } = require('./src/Intern');
 
 const team = [];
 
