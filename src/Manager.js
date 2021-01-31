@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Employee = require("./Employee");
+const { Employee } = require("./Employee");
 
 
 const managerQ = [
@@ -26,7 +26,7 @@ getOfficeNumber() {
 }
 }
 
-module.exports = Manager;
+// module.exports = Manager;
 module.exports = {
     Manager,
     managerQ, 

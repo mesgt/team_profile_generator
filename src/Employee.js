@@ -1,25 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-
-
-const employeeQ = [
-    {
-        type: "input",
-        message: "What is your full name?",
-        name: "name",
-    },
-    {
-        type: "input",
-        message: "What is your employee ID?",
-        name: "id",
-    },
-    {
-        type: "input",
-        message: "What is your email?",
-        name: "email",
-    }
-]
 class Employee {
     constructor(name, id, email) {
         this.name = name;
@@ -44,8 +25,25 @@ class Employee {
     }
     };
 
+const employeeQ = [
+    {
+        type: "input",
+        message: "What is your full name?",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "What is your employee ID?",
+        name: "id",
+    },
+    {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+    }
+]
 
-module.exports = Employee;
+// module.exports = Employee;
 module.exports = {
     Employee,
     employeeQ, 

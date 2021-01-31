@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Employee = require("./Employee");
+const { Employee } = require("./Employee");
 
 const internQ = [
     {
@@ -25,7 +25,7 @@ getSchool() {
 }
 }
 
-module.exports = Intern;
+// module.exports = Intern;
 module.exports = {
     Intern,
     internQ, 

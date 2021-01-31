@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Employee = require("./Employee");
+const { Employee } = require("./Employee");
 
 const engineerQ = [
     {
@@ -24,7 +24,7 @@ getGithub() {
 }
 }
 
-module.exports = Engineer;
+// module.exports = Engineer;
 module.exports = {
     Engineer,
     engineerQ, 
