@@ -3,7 +3,7 @@ const fs = require("fs");
 
 // const team = require("./src/page-template");
 // const { Employee, employeeQ } = require('./src/Employee');
-const { Manager, managerQ } = require('./src/Manager');
+const { Manager, managerQ, teamManager } = require('./src/Manager');
 // const { engineerQ } = require("./src/Engineer");
 const { Engineer, engineerQ } = require('./src/Engineer');
 const { Intern, internQ } = require('./src/Intern');
@@ -45,6 +45,7 @@ function menu() {
                             // process.exit();
                             console.log("not working")
                         }
+                        
                     }
                     )}
             else {
