@@ -1,7 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const { Employee, employeeQ } = require("./Employee");
 const index = require("../index");
+const { Employee, employeeQ } = require("./Employee");
+
 
 // const team = [];
 
@@ -33,8 +34,8 @@ const managerQ = () =>
 ]).then (response => {
     // console.log("we will win managers")
     let manager = new Manager(response.name, response.id, response.email, response.officeNumber)
-    // console.log(manager);
-    team.push(manager);
+    console.log(manager);
+    // team.push(manager);
     // console.log(team);
     // index.menu(); //call the next function
 });

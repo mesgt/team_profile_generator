@@ -1,14 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const { Employee } = require("./Employee");
+const index = require("../index");
+const { Employee, employeeQ } = require("./Employee");
 
-const engineerQ = [
-    {
-        type: "input",
-        message: "What is your gitHub username?",
-        name: "gitHub",
-    },
-]
+
 class Engineer extends Employee {
     constructor(name, id, email, github) {
         super(name, id, email)
@@ -23,6 +18,24 @@ getGithub() {
     return this.github
 }
 }
+
+const engineerQ = () =>
+    inquirer
+    .prompt([
+    ...employeeQ,
+    {
+        type: "input",
+        message: "What is your GitHub username?",
+        name: "github",
+    },
+]).then (response => {
+    // console.log("we will win engineers")
+    let engineer = new Engineer(response.name, response.id, response.email, response.github)
+    console.log(engineer);
+    // team.push(engineer);
+    // console.log(team);
+    // call the next function
+});
 
 // module.exports = Engineer;
 module.exports = {

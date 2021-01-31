@@ -33,10 +33,10 @@ function menu() {
                     ]).then((answer) => {
                         // console.log(answer.role)
                         if (answer.role==="manager"){
-                            onlyManagers();
+                            onlyManagers()
                         } 
                         else if (answer.role==="engineer"){
-                            onlyEngineer();
+                            onlyEngineers();
                         }
                         else if (answer.role==="intern"){
                             onlyInterns();
