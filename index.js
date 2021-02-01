@@ -4,27 +4,26 @@ const fs = require("fs");
 // const team = require("./src/page-template");
 const { Employee } = require('./src/Employee');
 const { Manager } = require('./src/Manager');
-// const { engineerQ } = require("./src/Engineer");
 const { Engineer } = require('./src/Engineer');
 const { Intern } = require('./src/Intern');
 
-let team = [];
+let teamArr = [];
 
 //Employee questions
 const employeeQ = [
     {
         type: "input",
-        message: "What is your full name?",
+        message: "What is the employee's full name?",
         name: "name",
     },
     {
         type: "input",
-        message: "What is your employee ID?",
+        message: "What is the employee ID?",
         name: "id",
     },
     {
         type: "input",
-        message: "What is your email?",
+        message: "What is the employee's email address?",
         name: "email",
     }
 ];
@@ -35,16 +34,19 @@ const managerQ = () =>
     ...employeeQ,
     {
         type: "input",
-        message: "What is your office number?",
+        message: "What is the manager's office number?",
         name: "officeNumber",
+    },
+    {
+        type: "list",
+        message: "You are done entering information for the manager. Would you like to enter another empployee or render the webpage?",
+        choices: ["add another employee", "render webpage"],
+        name: "chooseNext"
     }
 ]).then (response => {
-    // console.log("we will win managers")
-    let manager = new Manager(response.name, response.id, response.email, response.officeNumber)
-    // console.log(manager);
-    team.push(manager);
-    // return teamManager;
-    console.log(team);
+    let newManager = new Manager(response.name, response.id, response.email, response.officeNumber)
+    teamArr.push(newManager);
+    // console.log(teamArr);
     // index.menu(); //call the next function
 });
 
@@ -54,16 +56,19 @@ const engineerQ = () =>
     ...employeeQ,
     {
         type: "input",
-        message: "What is your GitHub username?",
+        message: "What is the engineer's GitHub username?",
         name: "github",
     },
+    {
+        type: "list",
+        message: "You are done entering information for the engineer. Would you like to enter another empployee or render the webpage?",
+        choices: ["add another employee", "render webpage"],
+        name: "chooseNext"
+    }
 ]).then (response => {
-    // console.log("we will win engineers")
-    let engineer = new Engineer(response.name, response.id, response.email, response.github)
-    // console.log(engineer);
-    team.push(engineer);
-    // return team
-    console.log(team);
+    let newEngineer = new Engineer(response.name, response.id, response.email, response.github)
+    teamArr.push(newEngineer);
+    console.log(teamArr);
     // call the next function
 });
 
@@ -73,19 +78,58 @@ inquirer
     ...employeeQ,
     {
         type: "input",
-        message: "What is the name of your school?",
+        message: "What is the intern's school name?",
         name: "school",
     },
+    {
+        type: "list",
+        message: "You are done entering information for the intern. Would you like to enter another empployee or render the webpage?",
+        choices: ["add another employee", "render webpage"],
+        name: "chooseNext"
+    }
     ]).then (response => {
-    // console.log("we will win interns")
-    let intern = new Intern(response.name, response.id, response.email, response.school)
-    // console.log(intern);
-    team.push(intern);
-    // return team
-    console.log(team);
+    let newIntern = new Intern(response.name, response.id, response.email, response.school)
+    teamArr.push(newIntern);
+    console.log(teamArr);
     // call the next function
     });
-    // .then(response => console.log(response));
+
+    const continueQ = () =>
+    inquirer
+        .prompt([
+            {
+                type: "confirm",
+                message: "Would you like to add another employee?",
+                name: "addNew"
+            }
+        ]). then(response => {
+            if ()
+        })
+
+const addEmployee = () =>
+inquirer
+    .prompt([
+        {
+            type: "list",
+            message: "Please select an employee role",
+            choices: ["manager", "engineer", "intern"],
+            name: "role",
+        }
+        ]).then((answer) => {
+            if (answer.role==="manager"){
+                managerQ() 
+            } 
+            else if (answer.role==="engineer"){
+                engineerQ();
+            }
+            else if (answer.role==="intern"){
+                internQ();
+            }
+            else {
+                // process.exit();
+                console.log("not working")
+            }
+        })
 
 
 function menu() {
@@ -100,39 +144,14 @@ function menu() {
             }
         ]).then(response => {
             if (response.intro==="build a team") {
-                inquirer
-                    .prompt([
-                        {
-                            type: "list",
-                            message: "Please select an employee role",
-                            choices: ["manager", "engineer", "intern"],
-                            name: "role",
-                        }
-                    ]).then((answer) => {
-                        if (answer.role==="manager"){
-                            managerQ() //employee and manager Q are asked, info pushed to team, and user asked if should continue or exit
-                        } 
-                        else if (answer.role==="engineer"){
-                            engineerQ();
-                        }
-                        else if (answer.role==="intern"){
-                            internQ();
-                        }
-                        else {
-                            // process.exit();
-                            console.log("not working")
-                        }
-                        
-                    }
-                    )}
+                addEmployee(); //employee and manager Q are asked, info pushed to team, and user asked if should continue or exit
+            }
             else {
                 console.error(err);
                 return
             }
         })
     }
-
-
 
 
 
