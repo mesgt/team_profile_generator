@@ -1,7 +1,3 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
-// const team = require("./src/page-template");
-
 class Employee {
     constructor(name, id, email) {
         this.name = name;
@@ -23,6 +19,4 @@ class Employee {
     };
 
 // module.exports = Employee;
-module.exports = {
-    Employee,
-};
+module.exports = { Employee };

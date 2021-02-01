@@ -1,5 +1,4 @@
-const index = require("../index");
-const { Employee, employeeQ, team } = require("./Employee");
+const { Employee } = require("./Employee");
 
 class Engineer extends Employee {
     constructor(name, id, email, github) {
@@ -15,6 +14,4 @@ getGithub() {
 }
 
 // module.exports = Engineer;
-module.exports = {
-    Engineer,
-};
+module.exports = { Engineer };

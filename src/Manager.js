@@ -1,4 +1,3 @@
-const index = require("../index");
 const { Employee } = require("./Employee");
 
 class Manager extends Employee {
@@ -15,6 +14,4 @@ getOfficeNumber() {
 }
 
 // module.exports = Manager;
-module.exports = {
-    Manager
-};
+module.exports = { Manager };

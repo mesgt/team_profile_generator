@@ -1,7 +1,7 @@
-const Employee = require("./src/Employee");
-const Manager = require("./src/Manager");
-const Engineer = require("./src/Engineer");
-const Intern = require("./src/Intern");
+const { Employee } = require("./Employee");
+const { Manager } = require('./Manager');
+const { Engineer } = require('./Engineer');
+const { Intern } = require('./Intern');
 const index = require("../index");
 
 // create the team
