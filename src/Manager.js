@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+// const team = require("./src/page-template");
 const index = require("../index");
 const { Employee, employeeQ } = require("./Employee");
 
@@ -22,29 +23,11 @@ getOfficeNumber() {
 }
 }
 
-const managerQ = () =>
-    inquirer
-    .prompt([
-    ...employeeQ,
-    {
-        type: "input",
-        message: "What is your office number?",
-        name: "officeNumber",
-    }
-]).then (response => {
-    // console.log("we will win managers")
-    let manager = new Manager(response.name, response.id, response.email, response.officeNumber)
-    // console.log(manager);
-    teamManager.push(manager);
-    console.log(teamManager);
-    // index.menu(); //call the next function
-});
+
 
 // module.exports = Manager;
 module.exports = {
-    Manager,
-    managerQ,
-    teamManager
+    Manager
 };
 
 // function Manager(name, employeeID, email, officeNumber) {

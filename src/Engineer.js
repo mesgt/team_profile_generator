@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+// const team = require("./src/page-template");
 const index = require("../index");
 const { Employee, employeeQ, team } = require("./Employee");
 
@@ -20,23 +21,7 @@ getGithub() {
 }
 }
 
-const engineerQ = () =>
-    inquirer
-    .prompt([
-    ...employeeQ,
-    {
-        type: "input",
-        message: "What is your GitHub username?",
-        name: "github",
-    },
-]).then (response => {
-    // console.log("we will win engineers")
-    let engineer = new Engineer(response.name, response.id, response.email, response.github)
-    // console.log(engineer);
-    teamEngineer.push(engineer);
-    console.log(teamEngineer);
-    // call the next function
-});
+
 
 // module.exports = Engineer;
 module.exports = {

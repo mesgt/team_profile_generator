@@ -2,6 +2,7 @@ const Employee = require("./src/Employee");
 const Manager = require("./src/Manager");
 const Engineer = require("./src/Engineer");
 const Intern = require("./src/Intern");
+const index = require("../index");
 
 // create the team
 const generateTeam = team => {

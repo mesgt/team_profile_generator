@@ -1,9 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+// const team = require("./src/page-template");
 const index = require("../index");
 const { Employee, employeeQ, team } = require("./Employee");
-
-let teamIntern = [];
 
 class Intern extends Employee {
     constructor(name, id, email, school) {
@@ -20,29 +19,10 @@ getSchool() {
 }
 }
 
-const internQ = () =>
-    inquirer
-    .prompt([
-    ...employeeQ,
-    {
-        type: "input",
-        message: "What is the name of your school?",
-        name: "school",
-    },
-]).then (response => {
-    // console.log("we will win interns")
-    let intern = new Intern(response.name, response.id, response.email, response.school)
-    // console.log(intern);
-    teamIntern.push(intern);
-    console.log(teamIntern);
-    // call the next function
-});
 
 // module.exports = Intern;
 module.exports = {
-    Intern,
-    internQ,
-    teamIntern
+    Intern
 };
 
 
