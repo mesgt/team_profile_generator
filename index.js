@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-
 const html = require("./src/page-template");
 const { Manager } = require('./src/Manager');
 const { Engineer } = require('./src/Engineer');
@@ -18,13 +17,14 @@ function menu() {
                 message: "What would you like to do?",
                 choices: ["build a team", "exit"],
                 name: "intro",
+                default: "build a team",
             }
         ]).then(response => {
             if (response.intro === "build a team") {
                 addEmployee();
             }
             else {
-                console.error(err);//add exit
+                console.log("You have chosen to exit the app");
                 return
             }
         })
@@ -51,8 +51,7 @@ const addEmployee = () =>
                 internQ();
             }
             else {
-                // process.exit();
-                console.log("not working") //throw error
+                throw Error = new Error(console.error(err))
             }
         });
 
@@ -62,16 +61,19 @@ const employeeQ = [
         type: "input",
         message: "What is the employee's full name?",
         name: "name",
+        default: "Simone Sims",
     },
     {
         type: "input",
         message: "What is the employee ID?",
         name: "id",
+        default: "100"
     },
     {
         type: "input",
         message: "What is the employee's email address?",
         name: "email",
+        default: "ssims@gmail.com"
     }
 ];
 
@@ -83,12 +85,14 @@ const managerQ = () =>
                 type: "input",
                 message: "What is the manager's office number?",
                 name: "officeNumber",
+                default: "356"
             },
             {
                 type: "list",
                 message: "You are done entering information for the manager. Would you like to enter another empployee or render the team webpage?",
                 choices: ["add another employee", "render webpage"],
-                name: "chooseNext"
+                name: "chooseNext",
+                default: "add another employee",
             }
         ]).then(response => {
             let newManager = new Manager(response.name, response.id, response.email, response.officeNumber)
@@ -108,12 +112,14 @@ const engineerQ = () =>
                 type: "input",
                 message: "What is the engineer's GitHub username?",
                 name: "github",
+                default: "jdoe"
             },
             {
                 type: "list",
                 message: "You are done entering information for the engineer. Would you like to enter another empployee or render the team webpage?",
                 choices: ["add another employee", "render webpage"],
-                name: "chooseNext"
+                name: "chooseNext",
+                default: "add another employee",
             }
         ]).then(response => {
             let newEngineer = new Engineer(response.name, response.id, response.email, response.github)
@@ -133,12 +139,14 @@ const internQ = () =>
                 type: "input",
                 message: "What is the intern's school name?",
                 name: "school",
+                default: "UC Davis"
             },
             {
                 type: "list",
                 message: "You are done entering information for the intern. Would you like to enter another empployee or render the team webpage?",
                 choices: ["add another employee", "render webpage"],
-                name: "chooseNext"
+                name: "chooseNext",
+                default: "render webpage",
             }
         ]).then(response => {
             let newIntern = new Intern(response.name, response.id, response.email, response.school)
@@ -158,6 +166,7 @@ function renderPage() {
                 type: "input",
                 message: "Please enter the team name:",
                 name: "teamName",
+                default: "superStars"
             }
         ]).then(response => {
             fs.mkdirSync(__dirname + "/dist/" + `${response.teamName}/`);

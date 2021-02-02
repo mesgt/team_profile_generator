@@ -13,5 +13,4 @@ getSchool() {
 }
 }
 
-// module.exports = Intern;
 module.exports = { Intern };

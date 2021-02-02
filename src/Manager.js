@@ -13,5 +13,4 @@ getOfficeNumber() {
 }
 }
 
-// module.exports = Manager;
 module.exports = { Manager };

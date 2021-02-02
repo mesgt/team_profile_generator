@@ -74,6 +74,7 @@ const generateTeam = team => {
         .map(intern => generateIntern(intern))
         .join("")
     );
+
     return html.join("");
 }
 

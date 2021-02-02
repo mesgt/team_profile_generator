@@ -13,5 +13,4 @@ getGithub() {
 }
 }
 
-// module.exports = Engineer;
 module.exports = { Engineer };
