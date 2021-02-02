@@ -51,3 +51,4 @@ If you are interested in collaborating with me on this project, please visit (ht
 
 Basic testing was performed using Jest.
 
+![](./assets/giff/teamProfile1.gif)
