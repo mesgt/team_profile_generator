@@ -21,6 +21,9 @@ Published site: https://mesgt.github.io/team_profile_generator/
 N/A
 
 ## Usage
+Open internal terminal for index.js and run "node index.js" command. Answer questions when prompted. The file can be further edited following rendering.
+
+![](./assets/giff/teamProfile.gif)
 
 <img src="assets/images/teamProfile.png" alt="Team Profile" width="350" />
 

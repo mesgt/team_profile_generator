@@ -166,13 +166,13 @@ function renderPage() {
                 type: "input",
                 message: "Please enter the team name:",
                 name: "teamName",
-                default: "superStars"
+                default: "SuperStars"
             }
         ]).then(response => {
             fs.mkdirSync(__dirname + "/dist/" + `${response.teamName}/`);
             fs.writeFileSync(__dirname + "/dist/" + `${response.teamName}/` + "index.html", html(teamArr), (err) => err
                 ? console.error(err)
-                : console.log("Success!"))
+                : console.log("Your team profile is being generated!"))
         })
 };
 
