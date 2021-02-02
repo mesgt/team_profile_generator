@@ -2,12 +2,59 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 const html = require("./src/page-template");
-const { Employee } = require("./src/Employee");
 const { Manager } = require('./src/Manager');
 const { Engineer } = require('./src/Engineer');
 const { Intern } = require('./src/Intern');
 
 let teamArr = [];
+
+//Main menu
+function menu() {
+    console.log("Welcome to Team Profile Generator!")
+    inquirer
+        .prompt([
+            {
+                type: "list",
+                message: "What would you like to do?",
+                choices: ["build a team", "exit"],
+                name: "intro",
+            }
+        ]).then(response => {
+            if (response.intro === "build a team") {
+                addEmployee();
+            }
+            else {
+                console.error(err);//add exit
+                return
+            }
+        })
+};
+
+//Add an employee
+const addEmployee = () =>
+    inquirer
+        .prompt([
+            {
+                type: "list",
+                message: "Please select employee role",
+                choices: ["manager", "engineer", "intern"],
+                name: "role",
+            }
+        ]).then((response) => {
+            if (response.role === "manager") {
+                managerQ()
+            }
+            else if (response.role === "engineer") {
+                engineerQ();
+            }
+            else if (response.role === "intern") {
+                internQ();
+            }
+            else {
+                // process.exit();
+                console.log("not working") //throw error
+            }
+        });
 
 //Employee questions
 const employeeQ = [
@@ -27,27 +74,6 @@ const employeeQ = [
         name: "email",
     }
 ];
-
-function menu() {
-    console.log("Welcome to Team Profile Generator!")
-    inquirer
-        .prompt([
-            {
-                type: "list",
-                message: "What would you like to do?",
-                choices: ["build a team", "exit"],
-                name: "intro",
-            }
-        ]).then(response => {
-            if (response.intro === "build a team") {
-                addEmployee(); //employee and manager Q are asked, info pushed to team, and user asked if should continue or exit
-            }
-            else {
-                console.error(err);
-                return
-            }
-        })
-}
 
 const managerQ = () =>
     inquirer
@@ -87,12 +113,12 @@ const engineerQ = () =>
                 type: "list",
                 message: "You are done entering information for the engineer. Would you like to enter another empployee or render the team webpage?",
                 choices: ["add another employee", "render webpage"],
-                name: "chooseNext1"
+                name: "chooseNext"
             }
         ]).then(response => {
             let newEngineer = new Engineer(response.name, response.id, response.email, response.github)
             teamArr.push(newEngineer);
-            if (response.chooseNext1 === "add another employee") {
+            if (response.chooseNext === "add another employee") {
                 addEmployee()
             } else {
                 renderPage()
@@ -112,43 +138,18 @@ const internQ = () =>
                 type: "list",
                 message: "You are done entering information for the intern. Would you like to enter another empployee or render the team webpage?",
                 choices: ["add another employee", "render webpage"],
-                name: "chooseNext2"
+                name: "chooseNext"
             }
         ]).then(response => {
             let newIntern = new Intern(response.name, response.id, response.email, response.school)
             teamArr.push(newIntern);
-            if (response.chooseNext2 === "add another employee") {
+            if (response.chooseNext === "add another employee") {
                 addEmployee()
             } else {
                 renderPage()
             }
         });
 
-
-const addEmployee = () =>
-    inquirer
-        .prompt([
-            {
-                type: "list",
-                message: "Please select employee role",
-                choices: ["manager", "engineer", "intern"],
-                name: "role",
-            }
-        ]).then((response) => {
-            if (response.role === "manager") {
-                managerQ()
-            }
-            else if (response.role === "engineer") {
-                engineerQ();
-            }
-            else if (response.role === "intern") {
-                internQ();
-            }
-            else {
-                // process.exit();
-                console.log("not working")
-            }
-        });
 
 function renderPage() {
     inquirer
@@ -159,8 +160,8 @@ function renderPage() {
                 name: "teamName",
             }
         ]).then(response => {
-            fs.mkdirSync(_dirname + "/dist/" + `${response.teamName}/`);
-            fs.writeFileSync(_dirname + "/dist/" + `${response.teamName}/` + "index.html", teamName(teamArr), (err) => err
+            fs.mkdirSync(__dirname + "/dist/" + `${response.teamName}/`);
+            fs.writeFileSync(__dirname + "/dist/" + `${response.teamName}/` + "index.html", html(teamArr), (err) => err
                 ? console.error(err)
                 : console.log("Success!"))
         })

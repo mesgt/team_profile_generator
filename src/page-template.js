@@ -1,9 +1,3 @@
-const { Employee } = require("./Employee");
-const { Manager } = require('./Manager');
-const { Engineer } = require('./Engineer');
-const { Intern } = require('./Intern');
-const index = require("../index");
-
 // create the team
 const generateTeam = team => {
 
@@ -55,7 +49,7 @@ const generateTeam = team => {
     </div>
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item">ID: ${intern.getID()}</li>
+            <li class="list-group-item">ID: ${intern.getId()}</li>
             <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
             <li class="list-group-item">School: ${intern.getSchool()}</li>
         </ul>
@@ -80,9 +74,7 @@ const generateTeam = team => {
         .map(intern => generateIntern(intern))
         .join("")
     );
-
     return html.join("");
-
 }
 
 // export function to generate entire page

@@ -1,4 +1,4 @@
-const Engineer = require("../src/Engineer");
+const { Engineer } = require("../src/Engineer");
 
 test("Can set GitHub account via constructor", () => {
   const testValue = "GitHubUser";
