@@ -21,9 +21,8 @@ Published site: https://mesgt.github.io/team_profile_generator/
 N/A
 
 ## Usage
-N/A
 
-![alt text](assets/images/screenshot.png)
+<img src="assets/images/teamProfile.png" alt="Team Profile" width="350" />
 
 ## Credits
 N/A
